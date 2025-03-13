@@ -34,10 +34,10 @@ test.describe.serial("Run UI tests sequentially", () => {
       .getByRole("textbox", { name: "Confirm Password*" })
       .fill(password);
     await page.getByRole("button", { name: "Create an Account" }).click();
-    const emailCheck = await page.getByText(randomEmail);
+    const emailCheck = page.getByText(randomEmail);
     console.log("Expecting " + emailCheck + " to be visible");
     await expect(emailCheck).toBeVisible();
-    const name = await page.getByText("John Smith");
+    const name = page.getByText("John Smith");
     console.log("Expecting " + name + " to be visible");
     await expect(name).toBeVisible();
   });
